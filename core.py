@@ -42,6 +42,11 @@ except FileExistsError:
     pass
 
 
+def set_download_dir(d):
+    global DOWNLOAD_DIR
+    DOWNLOAD_DIR = d
+
+
 class InstaCrawler:
     def __init__(self, username):
         self._user_name = username
@@ -63,8 +68,7 @@ class InstaCrawler:
         cursor = user_json['media']['page_info']['end_cursor']
         while True:
             query_url = 'https://www.instagram.com/query/?' \
-                        + urllib.parse.urlencode({'q':
-                                                      QUERY_POST_DATA % (self._user_id, cursor, 100),
+                        + urllib.parse.urlencode({'q': QUERY_POST_DATA % (self._user_id, cursor, 100),
                                                   'ref': 'users::show'}
                                                  )
             with self._opener.open(query_url) as r:
