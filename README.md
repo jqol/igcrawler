@@ -7,5 +7,9 @@ Simple Instagram crawler. Download images and videos from public instagram accou
 # Requirements
 * Python 3
 
-#TODO Usage
+# Usage
+```bash
+usage: main.py [-h] [-o OUTPUT] username
+```
+
 
